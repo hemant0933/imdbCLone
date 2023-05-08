@@ -9,7 +9,7 @@ function App() {
   return (
    <Router>
      <Routes>
-      <Route path={routhPath.home}  element={<Home />} />
+      <Route exact path={routhPath.home}  element={<Home />} />
       <Route path={routhPath.categories} element={<CategoryMovies />} />
       <Route path={routhPath.invalid} element={<Home />} />
      </Routes>

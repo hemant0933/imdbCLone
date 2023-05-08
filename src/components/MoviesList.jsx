@@ -3,20 +3,23 @@ import React from 'react';
 import { Star } from '@mui/icons-material';
 
 const Banner = styled('img')({
-    width: 47,
+    width:'100%',
 })
 
 const Container = styled(List)`
-    display: flex;
+    display: flex; 
+    cursor:pointer;
+    width:260px;
+    flex-direction:column;
 `
 
 const MoviesList = ({movies}) => {
   return (
-    <>
+    <div style={{display:'flex',flexWrap:'wrap-reverse', justifyContent:'space-between',alignItems:'center'}}>
      {
         movies.map(movie => (
             <Box>
-                <Container>
+                <Container style={{border:'1px solid black',alignItems: 'center',marginBottom:'10px'}}>
                     <ListItem>
                         <Banner src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} alt="poster"/>
                     </ListItem>
@@ -28,13 +31,13 @@ const MoviesList = ({movies}) => {
                         <Typography>{movie.vote_average}</Typography>
                     </ListItem>
                     <ListItem>
-                        <Typography>{movie.release_date}</Typography>
+                        <Typography>Release Date - {movie.release_date}</Typography>
                     </ListItem>
                 </Container>
             </Box>
         ))
      } 
-    </>
+    </div>
   );
 }
 

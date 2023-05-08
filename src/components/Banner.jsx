@@ -2,6 +2,7 @@ import { Box,Typography,styled } from '@mui/material';
 import React from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import { Link } from 'react-router-dom';
 
 const responsive = {
     desktop: {
@@ -25,11 +26,9 @@ const responsive = {
     width: '100%',
   })
   const BannerWrapper = styled(Box)`
-     position: absolute !important,
-     & > p {
-       z-index:100;
-     }
+    position: relative
   `
+
 const Banner = ({movies}) => {
   return (
    <Box style={{width:'65%'}}>
@@ -44,15 +43,20 @@ const Banner = ({movies}) => {
      >
         {
             movies.map(( movie ) => ( 
-                <BannerWrapper>
+                <Link style={{textDecoration:'none',color:'white'}}>
                     
-                    <StyledBanner 
-                        id={Math.floor(Math.random() * 100)} 
-                        src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`} 
-                        alt="banner"
-                   />
-                   <Typography style={{color:'#ffff'}}>{movie.title}</Typography>
-                </BannerWrapper>
+                  <BannerWrapper >
+                    <StyledBanner
+                            id={Math.floor(Math.random() * 100)} 
+                            src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`} 
+                            alt="banner"
+                    />
+                  </BannerWrapper>
+                  <BannerWrapper>
+                     <Typography style={{marginTop:'-90px',fontWeight: '500',fontSize: '3.5rem', marginBottom: '0.4rem',textAlign: 'left'}} 
+                      variant="h2">{movie.title}</Typography>
+                  </BannerWrapper>
+                </Link>
                 
             ))
         }
