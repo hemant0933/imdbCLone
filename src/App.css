@@ -36,3 +36,9 @@
     transform: rotate(360deg);
   }
 } */
+.cards:hover{
+  transform: scale(1.1);
+  transition: 500ms ease-in-out;
+  background-color: #000;
+  color:white;
+}

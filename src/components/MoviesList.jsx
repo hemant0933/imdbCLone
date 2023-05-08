@@ -9,17 +9,19 @@ const Banner = styled('img')({
 const Container = styled(List)`
     display: flex; 
     cursor:pointer;
-    width:260px;
+    width:230px;
     flex-direction:column;
 `
 
 const MoviesList = ({movies}) => {
+
   return (
-    <div style={{display:'flex',flexWrap:'wrap-reverse', justifyContent:'space-between',alignItems:'center'}}>
+   
+        <div style={{display:'flex',flexWrap:'wrap-reverse', justifyContent:'space-between',alignItems:'center'}}>
      {
         movies.map(movie => (
             <Box>
-                <Container style={{border:'1px solid black',alignItems: 'center',marginBottom:'10px'}}>
+                <Container className='cards' style={{border:'1px solid #7B8FA1',alignItems: 'center',marginBottom:'20px'}}>
                     <ListItem>
                         <Banner src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} alt="poster"/>
                     </ListItem>
